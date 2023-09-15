@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class and fun - props</title>
+</head>
+<body>
+    <!--1 //create root div with an id  -->
+    <div id="root"> This will change</div>
+
+
+    <!-- 2 get react libs -->
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel"> // 3 babel here
+   
+   function GreetingsFunctional(props){
+    return(
+        <div>
+           <p>Hello, {props.sname}! Welcome from functional component.</p>
+        </div>
+
+    )
+   }
+
+   class MyClassComp extends React.Component {
+    render(){
+        return(
+            <div>
+                <p>Hello, {this.props.sname}! Welcome from ClassComp.</p>
+            </div>
+        );
+    }
+   }
+
+let root = ReactDOM.createRoot(document.getElementById('root'));
+root.render([<GreetingsFunctional sname="John"/>,<MyClassComp sname="Jane"/>]);
+
+
+
+</script>
+</body>
+</html>
